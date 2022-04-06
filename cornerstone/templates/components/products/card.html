@@ -73,6 +73,9 @@
                     lazyload=theme_settings.lazyload_mode
                     default_image=theme_settings.default_image_product
                 }}
+
+                data-hoverimage="{{#replace '{:size}' images.1.data}}300x300{{/replace}}{{getImage images.1.data 'productgallery_size' (cdn theme_settings.default_image_product)}}"
+
             </div>
         </a>
 

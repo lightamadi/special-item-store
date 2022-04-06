@@ -54,6 +54,9 @@
 
         {{!-- Get this loading ASAP --}}
         <link rel="preload" href="{{cdn 'assets/dist/theme-bundle.main.js'}}" as="script">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+
     </head>
     <body>
         <svg data-src="{{cdn 'img/icon-sprite.svg'}}" class="icons-svg-sprite"></svg>
@@ -72,5 +75,22 @@
         <script async defer src="{{cdn 'assets/dist/theme-bundle.main.js'}}" onload="onThemeBundleMain()"></script>
 
         {{{footer.scripts}}}
+
+        <script>
+                $('.card-figure').hover(
+        	function() {
+              var image = $(this).find('.card-image');
+              var newImg = image.attr('data-hoverimage');
+              var currentImg = image.attr('src');
+        		if (newImg && newImg != '') image.attr('src', newImg);
+           }, function() {
+              var image = $(this).find('.card-image');
+              var newImg = image.attr('data-src');
+              var currentImg = image.attr('src');
+        		if (newImg && newImg != '') image.attr('src', newImg);
+        	}
+        );
+            </script>
+
     </body>
 </html>
